@@ -1,0 +1,5 @@
+Library for communicating and interfacing with LP-Research LpmsIG1 sensors. This library contains classes that allow a user to integrate LPMS devices into their own applications. 
+ This library provides following features:
+ * Low level configuration of Lpms sensor through LpProtocol
+ * Easy-to-use reader and writer.
+For more infomation on how to use this library, please visit http://www.lp-research.com
