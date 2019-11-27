@@ -32,8 +32,7 @@
 cmake_minimum_required(VERSION 2.4.6)
 
 
-set(CMAKE_BUILD_TYPE "Release")
-#set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build, options are: Debug Release" )
 
 set(BUILD_ARCHITECTURE "32-bit" CACHE STRING "")
 #set(BUILD_ARCHITECTURE "64-bit" CACHE STRING "")
@@ -190,14 +189,14 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
     if(CMAKE_BUILD_TYPE STREQUAL "Release")
         add_library(${CMAKE_PROJECT_NAME} SHARED ${sources} ${headers})
-    target_link_libraries(${CMAKE_PROJECT_NAME} pthread)
-    target_link_libraries(${CMAKE_PROJECT_NAME} rt)
+        target_link_libraries(${CMAKE_PROJECT_NAME} pthread)
+        target_link_libraries(${CMAKE_PROJECT_NAME} rt)
     endif()
 
     if(CMAKE_BUILD_TYPE STREQUAL "Debug")
         add_library(${CMAKE_PROJECT_NAME} SHARED ${sources} ${headers})
-    target_link_libraries(${CMAKE_PROJECT_NAME} pthread)
-    target_link_libraries(${CMAKE_PROJECT_NAME} rt)
+        target_link_libraries(${CMAKE_PROJECT_NAME} pthread)
+        target_link_libraries(${CMAKE_PROJECT_NAME} rt)
     endif()
 
     install(FILES ${headers_linux_install} DESTINATION include/lpsensor)
