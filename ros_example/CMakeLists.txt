@@ -5,7 +5,14 @@ set(CMAKE_CXX_FLAGS "-std=c++11")
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  sensor_msgs 
+  std_msgs
+  message_generation
+)
+
+
+generate_messages(
+   DEPENDENCIES
+   std_msgs
 )
 
 link_directories("${IG1_LIB}")
@@ -28,3 +35,8 @@ target_link_libraries(lpms_ig1_node
  )
 
 add_dependencies(lpms_ig1_node ${catkin_EXPORTED_TARGETS})
+
+
+add_executable(quat_to_euler_node src/quat_to_euler_node.cpp)
+target_link_libraries(quat_to_euler_node ${catkin_LIBRARIES})
+add_dependencies(quat_to_euler_node ${catkin_EXPORTED_TARGETS})
