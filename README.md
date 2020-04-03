@@ -116,16 +116,16 @@ lpms_ig1_node is a driver for the LPMS-IG1 Inertial Measurement Unit. It publish
 #### 2.1.3 Parameters
 
 
-&#126;port (string, default: /dev/ttyUSB0) 
+~port (string, default: /dev/ttyUSB0) 
 :   The port the IMU is connected to.
 
-&#126;baudrate (int, default: 921600)
+~baudrate (int, default: 921600)
 :   Baudrate for the IMU sensor.
 
-&#126;frame_id (string, default: imu) 
+~frame_id (string, default: imu) 
 :   The frame in which imu readings will be returned.
 
-&#126;data_process_rate (int, default: 200) 
+~data_process_rate (int, default: 200) 
 :   Data processing rate of the internal loop. This rate has to be equal or larger than the data streaming frequency of the sensor to prevent internal data queue overflow.
 
 
