@@ -1,4 +1,4 @@
-# LPMS-IG1 Series OpenSource Lib
+# LPMS-IG1/BE1 Series OpenSource Lib
 
 
 ## Usage
@@ -42,12 +42,21 @@ Open a new terminal window and run roscore
 ```bash
     $ roscore
 ```
-Connect `LPMS-IG1` sensor to PC.
+Connect `LPMS-IG1/BE1` sensor to PC.
 Now you can run lpms_ig1 node on your other terminal windows.
 
 You should see the following output on successful connection:
+
+*IG1*:
 ```bash
     $ rosrun lpms_ig1 lpms_ig1_node
+    #[IG1] COM:/dev/ttyUSB0 connection established
+    #[IG1] Send get transmit data
+```
+
+*BE1*:
+```bash
+    $ rosrun lpms_ig1 lpms_be1_node
     #[IG1] COM:/dev/ttyUSB0 connection established
     #[IG1] Send get transmit data
 ```
@@ -64,8 +73,14 @@ You can print out the imu data by subscribing to `/imu/data` topic
 
 Alternatively, you can use the sample launch file (lpmsig1.launch) start data acquisition and data plotting:
 
+*IG1*:
 ```
 roslaunch lpms_ig1 lpmsig1.launch
+```
+
+*BE1*:
+```
+roslaunch lpms_ig1 lpmsbe1.launch
 ```
 
 ## Troubleshooting
@@ -90,7 +105,7 @@ To allow access to sensors connected via USB, you need to ensure that the user r
 This driver interfaces with LPMS-IG1 IMU sensor from LP-Research Inc.
 
 
-### 2.1 lpms_ig1_node
+### 2.1 lpms_ig1_node / lpms_be1_node
 lpms_ig1_node is a driver for the LPMS-IG1 Inertial Measurement Unit. It publishes orientation, angular velocity, linear acceleration and magnetometer data (covariances are not yet supported), and complies with the [Sensor message](https://wiki.ros.org/sensor_msgs) for [IMU API](http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html) and [MagneticField](http://docs.ros.org/melodic/api/sensor_msgs/html/msg/MagneticField.html) API.
 
 #### 2.1.1 Published Topics
@@ -119,7 +134,7 @@ lpms_ig1_node is a driver for the LPMS-IG1 Inertial Measurement Unit. It publish
 ~port (string, default: /dev/ttyUSB0) 
 :   The port the IMU is connected to.
 
-~baudrate (int, default: 921600)
+~baudrate (int, default IG1: 921600, BE1: 115200)
 :   Baudrate for the IMU sensor.
 
 ~frame_id (string, default: imu) 
