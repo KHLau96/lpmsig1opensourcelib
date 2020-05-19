@@ -52,6 +52,10 @@ bool Serial::open(std::string portno, int baudrate)
         baudrate = B115200;
         break;
 
+    case BAUDRATE_230400:
+        baudrate = B230400;
+        break;
+
     case BAUDRATE_460800:
         baudrate = B460800;
         break;
