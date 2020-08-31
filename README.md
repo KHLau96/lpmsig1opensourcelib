@@ -149,3 +149,4 @@ For further information on `LP-Research`, please visit our website:
 * http://www.lp-research.com
 
 * http://www.alubi.cn
+# lpmsig1opensourcelib
